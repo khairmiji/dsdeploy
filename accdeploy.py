@@ -20,11 +20,11 @@ def get_data(filepath):
 with header:
 	st.title('Accessories Forecasting')
 
-	code = pd.read_excel('dataset/code.xlsx', index_col=0)
+	code = pd.read_excel('dataset/code.xlsx', index_col=0, engine='openpyxl')
 	st.write(code)
 
 with dataset:
-	df = get_data('dataset/Car_Decors_Data_Rev2_13062021.xlsx')
+	df = get_data('dataset/Car_Decors_Data_Rev2_13062021.xlsx', engine='openpyxl')
 	#st.write(df.head(24))
 
 with modelling:
