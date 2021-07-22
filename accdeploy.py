@@ -14,7 +14,7 @@ modelling = st.beta_container()
 
 @st.cache
 def get_data(filepath):
-	df = pd.read_excel(filepath)
+	df = pd.read_excel(filepath, engine='openpyxl')
 	return df
 
 with header:
@@ -24,7 +24,7 @@ with header:
 	st.write(code)
 
 with dataset:
-	df = get_data('dataset/Car_Decors_Data_Rev2_13062021.xlsx', engine='openpyxl')
+	df = get_data('dataset/Car_Decors_Data_Rev2_13062021.xlsx')
 	#st.write(df.head(24))
 
 with modelling:
