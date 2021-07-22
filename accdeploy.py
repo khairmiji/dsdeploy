@@ -20,18 +20,17 @@ def get_data(filepath):
 with header:
 	st.title('Accessories Forecasting')
 
-	code = pd.read_excel('/Users/khairmiji56/Desktop/dsdeploy/dataset/code.xlsx', index_col=0)
+	code = pd.read_excel('/dataset/code.xlsx', index_col=0)
 	st.write(code)
 
 with dataset:
-	df = get_data('/users/khairmiji56/Desktop/dsdeploy/dataset/Car_Decors_Data_Rev2_13062021.xlsx')
+	df = get_data('/dataset/Car_Decors_Data_Rev2_13062021.xlsx')
 	#st.write(df.head(24))
 
 with modelling:
 	sel_col, dis_col = st.beta_columns(2)
 
-	access = sel_col.selectbox('Choose Accessories Code', options=[1,2,3,4,5,6,7,8,9,10,11,12,
-																   13,14,15,16,17,18,19,20,21,22,23,24], index=0)
+	access = sel_col.selectbox('Choose Accessories Code', options=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24], index=0)
 	period = sel_col.selectbox('Choose Forecast Period (days)', options=[7,14,21,28,30], index=0)
 
 	df2 = df.iloc[:,[access]]
